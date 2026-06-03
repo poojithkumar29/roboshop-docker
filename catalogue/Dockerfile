@@ -7,22 +7,18 @@
 #     MONGO_URL="mongodb://mongodb:27017/catalogue"
 # CMD ["node","server.js"]
 
-
-FROM node:20.19.5-alpine3.21 AS build
+FROM node:20.19.5-alpine AS build
 WORKDIR /opt/server
 COPY package.json .
 COPY *.js .
-# this may add extra cache memory
 RUN npm install
 
-FROM node:20.19.5-alpine3.21
+FROM node:20.19.5-alpine
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 WORKDIR /opt/server
-USER roboshop
 
-COPY --from=build /opt/server /opt/server
-ENV MONGO="true" \
-    MONGO_URL="mongodb://mongodb:27017/catalogue"
-RUN chown -R roboshop:roboshop /opt/server
+COPY --from=build --chown=roboshop:roboshop /opt/server /opt/server
+
 USER roboshop
-CMD ["node","server.js"]
+EXPOSE 8080
+CMD ["node", "server.js"]
