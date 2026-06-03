@@ -1,0 +1,23 @@
+services:
+  catalogue:
+    image: catalogue:v1
+    container_name: catalogue
+    depends_on:
+    - mongodb
+  mongodb:
+    image: mongodb:v1
+    container_name: mongodb
+  redis:
+    image: redis:7.0
+    container_name: redis
+  mysql:
+    image: mysql:v1
+    conatiner_name: mysql
+  rabbitmq:
+    image: rabbitmq:3
+    container_name: rabbitmq
+  network:
+    default: 
+      driver: bridge
+      name: roboshop
+      external: false
