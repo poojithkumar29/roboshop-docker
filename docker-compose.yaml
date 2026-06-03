@@ -66,10 +66,9 @@ services:
     - shipping
     - payment
 networks:
-  default:
+  roboshop:
     driver: bridge
-    name: roboshop
-    external: false 
+    
 volumes:
   mongodb:
   redis:
