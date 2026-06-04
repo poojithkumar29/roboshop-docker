@@ -11,10 +11,9 @@ EXPOSE 8080
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop && \
     chown -R roboshop:roboshop /opt/server
 
-LABEL 
-    com.project="roboshop" \
-    component="user" \
-    created_by="poojithkumar"
+LABEL com.project="roboshop" \
+      component="user" \
+      created_by="poojithkumar"
 
 ENV  MONGO="true" \
     REDIS_URL="redis://redis:6379" \

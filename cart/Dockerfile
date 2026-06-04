@@ -9,10 +9,9 @@ WORKDIR /opt/server
 RUN  addgroup -S roboshop && adduser -S roboshop -G roboshop && \
     chown -R roboshop:roboshop /opt/server
 EXPOSE 8080
-LABEL 
-    com.project="roboshop" \
-    component="cart" \
-    created_by="poojithkumar"
+LABEL com.project="roboshop" \
+      component="cart" \
+      created_by="poojithkumar"
 COPY from=build  chown -R roboshop:roboshop /opt/server /opt/server
 ENV REDIS_URL="redis://redis:6379" \
     CATALOGUE_HOST="catalogue" \
