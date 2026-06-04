@@ -12,7 +12,7 @@ EXPOSE 8080
 LABEL com.project="roboshop" \
       component="cart" \
       created_by="poojithkumar"
-COPY --from=build  --chown -R roboshop:roboshop /opt/server /opt/server
+COPY --from=build  --chown roboshop:roboshop /opt/server /opt/server
 ENV REDIS_URL="redis://redis:6379" \
     CATALOGUE_HOST="catalogue" \
     CATALOGUE_PORT="8080"
