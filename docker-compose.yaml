@@ -23,7 +23,7 @@ services:
     image: poojithkumar29/mysql:v1
     container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: roboshop123
+      MYSQL_ROOT_PASSWORD: RoboShop@1
     volumes:
     - mysql:/var/lib/mysql
     - ./mysql/db:/docker-entrypoint-initdb.d
