@@ -17,6 +17,9 @@ FROM node:20.19.5-alpine
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 EXPOSE 8080
 WORKDIR /opt/server
+LABEL com.project="roboshop" \
+      component="catalogue" \
+      created_by="poojithkumar"
 ENV MONGO="true" \
     MONGO_URL="mongodb://mongodb:27017/catalogue"
 
