@@ -19,12 +19,12 @@ services:
     volumes:
     - redis:/data
   mysql:
-  build: ./mysql
-  image: poojithkumar29/mysql:v1
-  container_name: mysql
-  environment:
-    MYSQL_ROOT_PASSWORD: roboshop123
-  volumes:
+    build: ./mysql
+    image: poojithkumar29/mysql:v1
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: roboshop123
+    volumes:
     - mysql:/var/lib/mysql
     - ./mysql/db:/docker-entrypoint-initdb.d
   rabbitmq:
